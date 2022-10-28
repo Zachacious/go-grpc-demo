@@ -1,0 +1,32 @@
+syntax = "proto3";
+option go_package = "./livescore";
+
+import "person.proto";
+
+service LiveScoreService {
+    rpc GetPersonById (GetPersonByIdRequest) returns (GetPersonByIdResponse) {}
+    rpc CreatePerson (CreatePersonRequest) returns (CreatePersonResponse) {}
+    rpc GetAllPeople (GetAllPeopleRequest) returns (GetAllPeopleResponse) {}
+}
+
+message GetPersonByIdRequest {
+    string id = 1;
+}
+
+message GetPersonByIdResponse {
+    Person person = 1;
+}
+
+message CreatePersonRequest {
+    Person person = 1;
+}
+
+message CreatePersonResponse {
+    Person person = 1;
+}
+
+message GetAllPeopleRequest {}
+
+message GetAllPeopleResponse {
+    repeated Person people = 1;
+}
